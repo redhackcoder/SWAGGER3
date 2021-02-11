@@ -1,0 +1,2182 @@
+{
+    "swagger": "2.0",
+    "info": {
+    "description": "This is a API",
+    "version": "1.0.0",
+    "title": "Moduler API",
+    "contact": {
+    "email": "vishal.bajpai@worldfashionexchange.com"
+    },
+    "license": {
+    "name": "Apache 2.0",
+    "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+    }
+    },
+    "host": "192.168.2.184/api/v1/",
+    "tags": [
+    {
+    "name": "User license Creation",
+    "description": "User license Creation API"
+    },
+    {
+      "name": "License Key Generation",
+      "description": "License Key Generation API"
+    },
+    {
+      "name": "Item Modules",
+      "description": "Item Modules"
+    },
+    {
+      "name": "Inventory Modules",
+      "description": "Inventory Modules"
+    },
+    {
+      "name": "Master Modules",
+      "description": "Master Modules"
+    },
+    {
+      "name": "Sourcing Modules",
+      "description": "Sourcing Modules"
+    },{
+      "name": "Sales  Modules",
+      "description": "Sales Modules"
+    }
+    ],
+    "schemes": [
+    "http"
+    ],
+    "paths": {
+      "/license": {
+      "put": {
+      "tags": [
+      "User license Creation"
+      ],
+      "summary": "",
+      "description": "User license Creation \n",
+      "operationId": "",
+      "produces": [
+      "application/json"
+      ],
+      "parameters": [
+        {
+           "name": "body",
+           "in": "body",
+           "description": "  ",
+           "required": false,
+           "schema": {
+              "$ref": "#/definitions/Body"
+            }
+        }    
+      ],
+      "responses": {
+      "200": {
+      "description": "search results matching criteria",
+      "schema": {
+                "$ref": "#/definitions/LicenseResponse"
+      }
+      },
+      "401": {
+        "description": "Please provide valid details",
+        "schema": {
+         "$ref": "#/definitions/ValidDetails"
+        }
+        },
+        "429":{
+        "description": "exceeded request limit.Please Try after a minute"
+        },
+        "400": {
+        "description": "Bad Request Response",
+        "schema": {
+         "$ref": "#/definitions/BadModuleRequestResponseWithoutData"
+}
+        }
+        
+      }
+     },
+     "get": {
+     "tags": [
+        "User license Creation"
+        ],
+        "summary": "",
+        "description": "Get User license Details \n",
+        "operationId": "",
+        "produces": [
+        "application/json"
+        ],
+        "parameters": [
+          {
+             "name":"body",
+             "in":"body",
+             "description": "   ",
+             "required": false,
+             "schema": {
+                "$ref": "#/definitions/LicenseBody"
+              }
+          }    
+        ],
+        "responses": {
+        "200": {
+        "description": "search results matching criteria",
+        "schema": {
+                  "$ref": "#/definitions/LicenseResponse"
+        }
+        },
+        "400": {
+          "description": "bad input parameter",
+          "schema": {
+            "$ref": "#/definitions/BadModuleRequestResponseWithoutData"
+              }
+          },
+          "429":{
+          "description": "exceeded request limit.Please Try after a minute"
+          },
+          "401": {
+          "description": "Invalid Company Details",
+          "schema": {
+            "$ref": "#/definitions/InvalidCompanyDetails"
+                 }
+          }
+          
+        }
+        }
+     },
+         "/licenseKey": {
+         "get": {
+         "tags": [
+         "License Key Generation"
+         ],
+      "summary": "",
+      "description": "New License Key Generation API \n",
+      "operationId": "",
+      "produces": [
+      "application/json"
+      ],
+      "parameters": [
+        {
+           "name": "body",
+           "in": "body",
+           "description": "   ",
+           "required": false,
+           "schema": {
+              "$ref": "#/definitions/LicenseBody"
+            }
+        }    
+      ],
+      "responses": {
+      "200": {
+      "description": "search results matching criteria",
+      "schema": {
+                "$ref": "#/definitions/keyResponse"
+      }
+      },
+      "400": {
+        "description": "Your keys have already been generated. Please use another API to reset your keys",
+        "schema": {
+         "$ref": "#/definitions/LicenseKeyResponse"
+        }
+        },
+        "429":{
+        "description": "exceeded request limit.Please Try after a minute"
+        },
+        "401": {
+        "description": "Invalid Credentials",
+        "schema": {
+         "$ref": "#/definitions/LicenseKeyResponseError"
+        } 
+        },
+        "402": {
+         "description": "Invalid Company",
+         "schema": {
+          "$ref": "#/definitions/LicenseKeyResponseError402"
+         } 
+         }
+        
+      }},
+      "put": {
+         "tags": [
+         "License Key Generation"
+         ],
+      "summary": "",
+      "description": "License Key Regeneration",
+      "operationId": "",
+      "produces": [
+      "application/json"
+      ],
+      "parameters": [
+        {
+           "name": "body",
+           "in": "body",
+           "description": "   ",
+           "required": false,
+           "schema": {
+              "$ref": "#/definitions/LicenseBody"
+            }
+        }    
+      ],
+      "responses": {
+      "200": {
+      "description": "search results matching criteria",
+      "schema": {
+                "$ref": "#/definitions/keyResponse"
+      }
+      },
+      "400": {
+        "description": "Invalid Credentials",
+        "schema": {
+         "$ref": "#/definitions/LicenseKeyResponseError"
+        } 
+        },
+        "429":{
+        "description": "exceeded request limit.Please Try after a minute"
+        }
+        
+      }},
+      "delete": {
+         "tags": [
+         "License Key Generation"
+         ],
+      "summary": "",
+      "description": "Delete License Key Regeneration",
+      "operationId": "",
+      "produces": [
+      "application/json"
+      ],
+      "parameters": [
+        {
+           "name": "body",
+           "in": "body",
+           "description": "   ",
+           "required": false,
+           "schema": {
+              "$ref": "#/definitions/credentials"
+            }
+        }    
+      ],
+      "responses": {
+      "200": {
+      "description": "search results matching criteria",
+      "schema": {
+                "$ref": "#/definitions/deleteKeyResponse"
+      }
+      },
+      "400": {
+        "description": "Bad Request",
+        "schema": {
+         "$ref": "#/definitions/BadModuleRequestResponseWithoutData"
+        }   
+        },
+        "401": {
+         "description": "Invalid User",
+         "schema": {
+          "$ref": "#/definitions/InvalidUserKey"
+         }   
+         },
+         "402": {
+            "description": "Invalid Secret Key",
+            "schema": {
+             "$ref": "#/definitions/InvalidSecretKey"
+            }   
+            },
+        "429":{
+        "description": "exceeded request limit.Please Try after a minute"
+        }
+        
+      }
+       }
+      },
+      "/item/itemList": {
+         "get": {
+         "tags": [
+         "Item Modules"
+         ],
+      "summary": "",
+      "description": "get item list form Item Modules  \n",
+      "operationId": "",
+      "produces": [
+      "application/json"
+      ],
+      "parameters": [
+         {
+            "name": "pageNo",
+            "in": "query",
+            "description":"1",
+            "example":"1",
+            "required": false,
+            "type": "integer"
+            },
+            {
+               "name": "noOfItems",
+               "in": "query",
+               "description":"maximun no of item that you can get is 10",
+               "example":"10",
+               "required": false,
+               "type": "integer"
+               },
+         {
+            "name": "body",
+            "in": "body",
+            "description": "   ",
+            "required": true,
+            "schema": {
+               "$ref": "#/definitions/credentials"
+             }
+         }    
+       ],
+       "responses": {
+       "200": {
+       "description": "search results matching criteria",
+       "schema": {
+                 "$ref": "#/definitions/ItemModuleResponse"
+       }
+       },
+       "400": {
+         "description": "Invalid User",
+         "schema": {
+            "$ref": "#/definitions/InvalidModuleResponse"
+         }
+         },
+         "429":{
+         "description": "exceeded request limit.Please Try after a minute"
+         },
+         "401": {
+         "description": "Invalid Secret Key or check your license duration",
+         "schema": {
+            "$ref": "#/definitions/InvalidModuleKeyResponse"
+         }
+         },
+         "402":{
+            "description": "Bad Request",
+            "schema": {
+               "$ref": "#/definitions/BadModuleRequestResponse"
+            } 
+         }
+         }
+         }
+      },
+      "/inventory/invoice": {
+         "get": {
+         "tags": [
+         "Inventory Modules"
+         ],
+      "summary": "",
+      "description": "get Invoice list form Inventory Modules  \n",
+      "operationId": "",
+      "produces": [
+      "application/json"
+      ],
+      "parameters": [
+         {
+            "name": "pageNo:",
+            "in": "query",
+            "description":"1",
+            "example":"1",
+            "required": false,
+            "type": "integer"
+            },
+            {
+               "name": "noOfItems:",
+               "in": "query",
+               "description":"maximun no of item that you can get is 10",
+               "example":"10",
+               "required": false,
+               "type": "integer"
+               },
+         {
+            "name": "body",
+            "in": "body",
+            "description": "   ",
+            "required": false,
+            "schema": {
+               "$ref": "#/definitions/credentials"
+             }
+         }    
+       ],
+       "responses": {
+       "200": {
+       "description": "search results matching criteria",
+       "schema": {
+                 "$ref": "#/definitions/inventoryModuleResponse"
+       }
+       },
+       "400": {
+         "description": "Invalid User",
+         "schema": {
+            "$ref": "#/definitions/InvalidModuleResponse"
+         }
+         },
+         "429":{
+         "description": "exceeded request limit.Please Try after a minute"
+         },
+         "401": {
+         "description": "Invalid Secret Key or check your license duration",
+         "schema": {
+            "$ref": "#/definitions/InvalidModuleKeyResponse"
+         }
+         },
+         "402":{
+            "description": "Invalid Secret Key or check your license duration",
+            "schema": {
+               "$ref": "#/definitions/BadModuleRequestResponse"
+            } 
+         }
+         }
+      }
+   },
+      "/sourcing/po": {
+         "get": {
+         "tags": [
+         "Sourcing Modules"
+         ],
+      "summary": "",
+      "description": "get po list form sourcing Modules  \n",
+      "operationId": "",
+      "produces": [
+      "application/json"
+      ],
+      "parameters": [
+         {
+            "name": "pageNo:",
+            "in": "query",
+            "description":"1",
+            "example":"1",
+            "required": false,
+            "type": "integer"
+            },
+            {
+               "name": "noOfItems:",
+               "in": "query",
+               "description":"maximun no of item that you can get is 10",
+               "example":"10",
+               "required": false,
+               "type": "integer"
+               },
+         {
+            "name": "body",
+            "in": "body",
+            "description": "   ",
+            "required": false,
+            "schema": {
+               "$ref": "#/definitions/credentials"
+             }
+         }    
+       ],
+       "responses": {
+       "200": {
+       "description": "search results matching criteria",
+       "schema": {
+                 "$ref": "#/definitions/sourcingModuleResponse"
+       }
+       },
+       "400": {
+         "description": "Invalid User",
+         "schema": {
+            "$ref": "#/definitions/InvalidModuleResponse"
+         }
+         },
+         "429":{
+         "description": "exceeded request limit.Please Try after a minute"
+         },
+         "401": {
+         "description": "Invalid Secret Key or check your license duration",
+         "schema": {
+            "$ref": "#/definitions/InvalidModuleKeyResponse"
+         }
+         },
+         "402":{
+            "description": "Invalid Secret Key or check your license duration",
+            "schema": {
+               "$ref": "#/definitions/BadModuleRequestResponse"
+            } 
+         }
+         }
+         }
+      },
+      "/master/supplier": {
+         "get": {
+         "tags": [
+         "Master Modules"
+         ],
+      "summary": "",
+      "description": "get supplier list form master Modules  \n",
+      "operationId": "",
+      "produces": [
+      "application/json"
+      ],
+      "parameters": [
+         {
+            "name": "pageNo:",
+            "in": "query",
+            "description":"1",
+            "example":"1",
+            "required": false,
+            "type": "integer"
+            },
+            {
+               "name": "noOfItems:",
+               "in": "query",
+               "description":"maximun no of item that you can get is 10",
+               "example":"10",
+               "required": false,
+               "type": "integer"
+               },
+         {
+            "name": "body",
+            "in": "body",
+            "description": "   ",
+            "required": false,
+            "schema": {
+               "$ref": "#/definitions/credentials"
+             }
+         }    
+       ],
+       "responses": {
+       "200": {
+       "description": "search results matching criteria",
+       "schema": {
+                 "$ref": "#/definitions/MasterModuleResponse"
+       }
+       },
+       "400": {
+         "description": "Invalid User",
+         "schema": {
+            "$ref": "#/definitions/InvalidModuleResponse"
+         }
+         },
+         "429":{
+         "description": "exceeded request limit.Please Try after a minute"
+         },
+         "401": {
+         "description": "Invalid Secret Key or check your license duration",
+         "schema": {
+            "$ref": "#/definitions/InvalidModuleKeyResponse"
+         }
+         },
+         "402":{
+            "description": "Invalid Secret Key or check your license duration",
+            "schema": {
+               "$ref": "#/definitions/BadModuleRequestResponse"
+            } 
+         }
+         }
+      }
+   },
+      "/sales/shipmentOrderList": {
+         "get": {
+         "tags": [
+         "Sales  Modules"
+         ],
+      "summary": "",
+      "description": "get shipmentOrderList list form Sales Modules  \n",
+      "operationId": "",
+      "produces": [
+      "application/json"
+      ],
+      "parameters": [
+         {
+            "name": "pageNo:",
+            "in": "query",
+            "description":"1",
+            "example":"1",
+            "required": false,
+            "type": "integer"
+            },
+            {
+               "name": "noOfItems:",
+               "in": "query",
+               "description":"maximun no of item that you can get is:10",
+               "example":"10",
+               "required": false,
+               "type": "integer"
+               },
+         {
+            "name": "body",
+            "in": "body",
+            "description": "   ",
+            "required": false,
+            "schema": {
+               "$ref": "#/definitions/credentials"
+             }
+         }
+             
+       ],
+       "responses": {
+       "200": {
+       "description": "search results matching criteria",
+       "schema": {
+                 "$ref": "#/definitions/ShipmentModuleResponse"
+       }
+       },
+       "400": {
+         "description": "Invalid User",
+         "schema": {
+            "$ref": "#/definitions/InvalidModuleResponse"
+         }
+         },
+         "429":{
+         "description": "exceeded request limit.Please Try after a minute"
+         },
+         "401": {
+         "description": "Invalid Secret Key or check your license duration",
+         "schema": {
+            "$ref": "#/definitions/InvalidModuleKeyResponse"
+         }
+         },
+         "402":{
+            "description": "Invalid Secret Key or check your license duration",
+            "schema": {
+               "$ref": "#/definitions/BadModuleRequestResponse"
+            } 
+         }
+         }
+         }
+      }
+
+   },    
+    "definitions": {
+       "LicenseBody":{
+         "type": "json",
+         "properties": {
+            "companyId": {
+               "type": "string",
+               "example": "NNC/RandomOrg3"
+             },
+            "companyCode":{
+               "type": "integer",
+               "example": "10001/10015"
+             }
+            }
+       },
+   "LicenseKeyResponse":{
+      "properties": {
+         "status": {
+            "type": "string",
+            "example": "Failed"
+          },
+           "message": {
+            "type": "string",
+            "example": "Your keys have already been generated. Please use another API to reset your keys"
+          },"data":
+          {
+            "type": "array",
+            "example": []
+          }
+         }
+   },
+   "LicenseResponseError":{
+         "properties": {
+            "status": {
+               "type": "string",
+               "example": "Failed"
+             },
+              "message": {
+               "type": "string",
+               "example": "Invalid User"
+             }
+            }
+       },
+   "LicenseKeyResponseError":{
+      "properties": {
+         "status": {
+            "type": "string",
+            "example": "Failed"
+          },
+           "message": {
+            "type": "string",
+            "example": "Invalid Credentials"
+          },"data":
+          {
+            "type": "array",
+            "example": []
+          }
+         }
+   },
+   "LicenseKeyResponseError402":{
+      "properties": {
+         "status": {
+            "type": "string",
+            "example": "Failed"
+          },
+           "message": {
+            "type": "string",
+            "example": "Invalid Company"
+          },"data":
+          {
+            "type": "array",
+            "example": []
+          }
+         }
+   },
+   "deleteKeyResponse":{
+         "type": "object",
+         "properties": {
+            "status":{
+               "type": "string",
+               "example": "Success"
+            },
+            "message":{
+               "type": "string",
+               "example": "Deleted Successfully"
+            }
+         }
+       },
+   "keyResponse":{
+         "type": "object",
+         "properties": {
+            "status":{
+               "type":"string",
+               "example":"Active"
+            },
+            "message":{
+               "type":"string",
+               "example":"Your keys have been generated Successfully."
+            },
+            "data":{
+               "type":"array",
+               "items":{
+                  "$ref": "#/definitions/credentials"
+               }
+            }
+         }
+      },
+   "InvalidSecretKey":{
+      "properties": {
+         "status": {
+            "type": "string",
+            "example": "Failed"
+          },
+           "message": {
+            "type": "string",
+            "example": "Invalid Secret Key"
+          }
+         }
+   },
+   "InvalidUserKey":{
+      "properties": {
+         "status": {
+            "type": "string",
+            "example": "Failed"
+          },
+           "message": {
+            "type": "string",
+            "example": "Invalid User"
+          }
+         }
+   },
+   "ValidDetails":{
+      "properties": {
+         "status": {
+            "type": "string",
+            "example": "Failed"
+          },
+           "message": {
+            "type": "string",
+            "example": "Please provide valid details"
+          },
+          "data":{
+            "type": "array",
+            "example": []
+          }
+         }
+   },
+   "InvalidCompanyDetails":{
+      "properties": {
+         "status": {
+            "type": "string",
+            "example": "Failed"
+          },
+           "message": {
+            "type": "string",
+            "example": "Invalid Company Details"
+          }
+         }
+   },
+   "ItemModuleResponse":{
+    "type": "object",
+    "required": [
+    "status",
+    "message",
+    "data"
+    ],
+    "properties": {
+      "status":{
+         "type" : "string",
+         "example" :"Success"
+      },
+      "message":{
+         "type" : "string",
+         "example" :"No Of Records Fetched are: 10"
+      },
+      "data":{
+         "type":"array",
+         "items":{
+            "$ref": "#/definitions/ItemModuleResponseData"
+         } 
+         }
+      }
+      },
+   "ItemModuleResponseData":{
+         "properties": {
+            "articleCode":{
+               "type" : "string",
+               "example" :"10004N0015"
+            },
+            "articleName":{
+               "type" : "string",
+               "example" :"G Tee Overlap Lyoni aop"
+            },
+            "articleDesc":{
+               "type" : "string",
+               "example" :""
+            },
+            "remarks":{
+               "type" : "string",
+               "example" :""
+            },
+            "companyDivisionCode":{
+               "type" : "string",
+               "example" :"04"
+            },
+            "companyDivisionName":{
+               "type" : "string",
+               "example" :"Noppies Baby"
+            },
+            "productCategoryName":{
+               "type" : "string",
+               "example" :"Apperal"
+            },
+            "productCategoryCode":{
+               "type" : "string",
+               "example" :"1"
+            },
+            "productGroupCode":{
+               "type" : "string",
+               "example" :"00"
+            },
+            "productGroupName":{
+               "type" : "string",
+               "example" :"T-Shirts-Tops"
+            },
+            "productSubCategoryCode":{
+               "type" : "string",
+               "example" :"2003"
+            },
+            "productSubCategoryName":{
+               "type" : "string",
+               "example" :"T-shirts Longsleeve Kids"
+            },
+            "productLifeCycleStageCode":{
+               "type" : "string",
+               "example" :"1"
+            },
+            "productLifeCycleStageName":{
+               "type" : "string",
+               "example" :"Development"
+            },
+            "colorGroupID":{
+               "type" : "string",
+               "example" :""
+            },
+            "sizeGroupID":{
+               "type" : "string",
+               "example" :""
+            },
+            "UOM":{
+               "type" : "string",
+               "example" :"PC"
+            },
+            "seasonCode":{
+               "type" : "string",
+               "example" :"DNU"
+            },
+            "season":{
+               "type" : "string",
+               "example" :"Do Not Use"
+            },
+            "HTSCode":{
+               "type" : "string",
+               "example" :""
+            },
+            "buyerShortName":{
+               "type" : "string",
+               "example" :""
+            },
+            "buyer":{
+               "type" : "string",
+               "example" :""
+            },
+            "buyerCode":{
+               "type" : "string",
+               "example" :""
+            },
+            "supplierShortName":{
+               "type" : "string",
+               "example" :""
+            },
+            "supplier":{
+               "type" : "string",
+               "example" :""
+            },
+            "supplierCode":{
+               "type" : "string",
+               "example" :""
+            },
+            "agentShortName":{
+               "type" : "string",
+               "example" :""
+            },
+            "agent":{
+               "type" : "string",
+               "example" :""
+            },
+            "agentCode":{
+               "type" : "string",
+               "example" :""
+            },
+            "buyerRef":{
+               "type" : "string",
+               "example" :""
+            },
+            "supplierRef":{
+               "type" : "string",
+               "example" :""
+            },
+            "agentRef":{
+               "type" : "string",
+               "example" :""
+            },
+            "price1":{
+               "type" : "string",
+               "example" :"01"
+            },
+            "sellingCurrencyCode":{
+               "type" : "string",
+               "example" :"EUR"
+            },
+            "buyingPrice":{
+               "type" : "string",
+               "example" :"0"
+            },
+            "buyingCurrencyCode":{
+               "type" : "string",
+               "example" :"EUR"
+            },
+            "countryOfOriginCode":{
+               "type" : "string",
+               "example" :""
+            },
+            "weight":{
+               "type" : "string",
+               "example" :"0"
+            },
+            "article_internalnotes":{
+               "type" : "string",
+               "example" :""
+            },
+            "sharedRemarks":{
+               "type" : "string",
+               "example" :""
+            },
+            "ticketDescLine1":{
+               "type" : "string",
+               "example" :""
+            },
+            "ticketDescLine2":{
+               "type" : "string",
+               "example" :""
+            },
+            "collectionCode":{
+               "type" : "string",
+               "example" :" "
+            },
+            "collectionName":{
+               "type" : "string",
+               "example" :"Baby Basics (NOS)"
+            },
+            "createdOn":{
+               "type" : "string",
+               "example" :"Sun Jun 30 2019 11:55:10 GMT+0530 (India Standard Time)"
+            },
+            "lastChanged":{
+               "type" : "string",
+               "example" :"Sun Jun 30 2019 11:55:10 GMT+0530 (India Standard Time)"
+            },
+            "colorType":{
+               "type" : "string",
+               "example" :"Single Colors"
+            },
+            "design":{
+               "type" : "string",
+               "example" :""
+            },
+            "article_cust_Drop_code":{
+               "type" : "string",
+               "example" :"N"
+            },
+            "article_cust_Drop_name":{
+               "type" : "string",
+               "example" :"NOS"
+            },
+            "article_cust_ProductClassCode(EM)_code":{
+               "type" : "string",
+               "example" :""
+            },
+            "article_cust_ProductClassCode(EM)_name":{
+               "type" : "string",
+               "example" :""
+            },
+            "article_cust_FashionLevel_code":{
+               "type" : "string",
+               "example" :""
+            },
+            "article_cust_FashionLevel_name":{
+               "type" : "string",
+               "example" :""
+            },
+            "article_cust_Capsule_code":{
+               "type" : "string",
+               "example" :""
+            },
+            "article_cust_Capsule_name":{
+               "type" : "string",
+               "example" :""
+            },
+            "article_cust_Keylookcampaign":{
+               "type" : "string",
+               "example" :"No"
+            },
+            "article_cust_MOQ":{
+               "type" : "string",
+               "example" :""
+            },
+            "article_cust_RetailPrice":{
+               "type" : "string",
+               "example" :""
+            },
+            "article_cust_Year_code":{
+               "type" : "string",
+               "example" :"1000"
+            },
+            "article_cust_Year_name":{
+               "type" : "string",
+               "example" :"0"
+            },
+            "article_cust_MOQComments":{
+               "type" : "string",
+               "example" :""
+            },
+            "article_cust_Fit_code":{
+               "type" : "string",
+               "example" :""
+            },
+            "article_cust_Fit_name":{
+               "type" : "string",
+               "example" :""
+            },
+            "article_cust_Block":{
+               "type" : "string",
+               "example" :""
+            },
+            "article_cust_GOTS":{
+               "type" : "string",
+               "example" :""
+            },
+            "article_cust_BCI":{
+               "type" : "string",
+               "example" :""
+            },
+            "article_cust_REVERSIBLE":{
+               "type" : "string",
+               "example" :"No"
+            },
+            "article_cust_OrganicMaterials":{
+               "type" : "string",
+               "example" :"No"
+            },
+            "article_cust_GarmentDyed2":{
+               "type" : "string",
+               "example" :""
+            },
+            "article_cust_IndigoGarmentDyed":{
+               "type" : "string",
+               "example" :""
+            },
+            "article_cust_RecycledPolyester":{
+               "type" : "string",
+               "example" :""
+            },
+            "article_cust_CoolCotton":{
+               "type" : "string",
+               "example" :""
+            },
+            "article_cust_Radygo":{
+               "type" : "string",
+               "example" :""
+            },
+            "article_cust_StayBlack":{
+               "type" : "string",
+               "example" :""
+            },
+            "article_cust_Tencel":{
+               "type" : "string",
+               "example" :""
+            },
+            "article_cust_Nursing":{
+               "type" : "string",
+               "example" :""
+            },
+            "article_cust_Nursingenabling":{
+               "type" : "string",
+               "example" :""
+            },
+            "article_cust_QuotaCategory_code":{
+               "type" : "string",
+               "example" :" "
+            },
+            "article_cust_QuotaCategory_name":{
+               "type" : "string",
+               "example" :" "
+            },
+            "article_cust_LengthMeasurement_code":{
+               "type" : "string",
+               "example" :" "
+            },
+            "article_cust_LengthMeasurement_name":{
+               "type" : "string",
+               "example" :""
+            },
+            "article_cust_LeadTime(dorw)":{
+               "type" : "string",
+               "example" :" "
+            },
+            "article_cust_GrossWeight":{
+               "type" : "string",
+               "example" :" "
+            },
+            "article_cust_NettWeight":{
+               "type" : "string",
+               "example" :" "
+            },
+            "article_cust_ProductGroupCode(EM)_code":{
+               "type" : "string",
+               "example" :" "
+            },
+            "article_cust_ProductGroupCode(EM)_name":{
+               "type" : "string",
+               "example" :" "
+            },
+            "article_cust_Recycledcomponent":{
+               "type" : "string",
+               "example" :" "
+            },
+            "article_cust_Vegan":{
+               "type" : "string",
+               "example" :" "
+            },
+            "article_cust_GrossWeight(gr)DDL_code":{
+               "type" : "string",
+               "example" :"0.07"
+            },
+            "article_cust_GrossWeight(gr)DDL_name":{
+               "type" : "string",
+               "example" :"0.07 "
+            },
+            "article_cust_NettWeight(gr)DDL_code":{
+               "type" : "string",
+               "example" :"0.07 "
+            },
+            "article_cust_NettWeight(gr)DDL_name":{
+               "type" : "string",
+               "example" :"0.07"
+            },
+            "article_cust_Dessin":{
+               "type" : "string",
+               "example" :"No"
+            },
+            "article_cust_SleeveLength_code":{
+               "type" : "string",
+               "example" :" "
+            },
+            "article_cust_SleeveLength_name":{
+               "type" : "string",
+               "example" :" "
+            },
+            "article_cust_foldingcuffs":{
+               "type" : "string",
+               "example" :" "
+            },
+            "article_cust_AgeGroupCode(X)_code":{
+               "type" : "string",
+               "example" :" "
+            },
+            "article_cust_AgeGroupCode(X)_name":{
+               "type" : "string",
+               "example" :" "
+            },
+            "article_cust_FUCode(X)_code":{
+               "type" : "string",
+               "example" :" "
+            },
+            "article_cust_FUCode(X)_name":{
+               "type" : "string",
+               "example" :" "
+            },
+            "article_cust_ProductCertificate_code":{
+               "type" : "string",
+               "example" :" "
+            },
+            "article_cust_ProductCertificate_name":{
+               "type" : "string",
+               "example" :" "
+            },
+            "article_cust_dyeingst_code":{
+               "type" : "string",
+               "example" :" "
+            },
+            "article_cust_dyeingst_name":{
+               "type" : "string",
+               "example" :" "
+            },
+            "article_cust_finishingst_code":{
+               "type" : "string",
+               "example" :" "
+            },
+            "article_cust_finishingst_name":{
+               "type" : "string",
+               "example" :" "
+            },
+            "article_cust_articlecustlengthmeasurementN":{
+               "type" : "string",
+               "example" :" "
+            },
+            "article_cust_Bamboo":{
+               "type" : "string",
+               "example" :" "
+            },
+            "article_cust_Melange":{
+               "type" : "string",
+               "example" :" "
+            },
+            "article_cust_Cashmere(blend)":{
+               "type" : "string",
+               "example" :" "
+            },
+            "article_cust_EcoVero(Lenzing)":{
+               "type" : "string",
+               "example" :" "
+            },
+            "article_cust_Modal":{
+               "type" : "string",
+               "example" :" "
+            },
+            "article_cust_SoftFeel":{
+               "type" : "string",
+               "example" :" "
+            },
+            "article_cust_UVProtection":{
+               "type" : "string",
+               "example" :" "
+            },
+            "article_cust_Wrinklefree":{
+               "type" : "string",
+               "example" :" "
+            },
+            "article_cust_Comfortfeel":{
+               "type" : "string",
+               "example" :" "
+            },
+            "article_cust_Indirectcosts":{
+               "type" : "string",
+               "example" :" "
+            },
+            "article_cust_ProductName":{
+               "type" : "string",
+               "example" :" "
+            },
+            "article_cust_AdditionalUSP�s":{
+               "type" : "string",
+               "example" :" "
+            },
+            "article_cust_h_t_scodelargesizes_code":{
+               "type" : "string",
+               "example" :" "
+            },
+            "article_cust_h_t_scodelargesizes_name":{
+               "type" : "string",
+               "example" :" "
+            },
+            "article_cust_Product_code":{
+               "type" : "string",
+               "example" :" "
+            },
+            "article_cust_Product_name":{
+               "type" : "string",
+               "example" :" "
+            },
+            "article_cust_smsquantity":{
+               "type" : "string",
+               "example" :" "
+            },
+            "article_cust_breathable":{
+               "type" : "string",
+               "example" :" "
+            },
+            "article_cust_waterrepellent":{
+               "type" : "string",
+               "example" :" "
+            },
+            "article_cust_waterproof":{
+               "type" : "string",
+               "example" :" "
+            },
+            "article_cust_windproof":{
+               "type" : "string",
+               "example" :" "
+            },
+            "article_cust_StyleStatus_code":{
+               "type" : "string",
+               "example" :" "
+            },
+            "article_cust_StyleStatus_name":{
+               "type" : "string",
+               "example" :" "
+            },
+            "article_cust_Collartype_code":{
+               "type" : "string",
+               "example" :" "
+            },
+            "article_cust_Collartype_name":{
+               "type" : "string",
+               "example" :" "
+            },
+            "article_cust_Artwork/AOP_name":{
+               "type" : "string",
+               "example" :" "
+            },
+            "article_cust_drawstringcord":{
+               "type" : "string",
+               "example" :" "
+            },
+            "article_cust_drawstringcordfixed":{
+               "type" : "string",
+               "example" :" "
+            },
+            "article_cust_drawstringcordlength_code":{
+               "type" : "string",
+               "example" :" "
+            },
+            "article_cust_drawstringcordlength_name":{
+               "type" : "string",
+               "example" :" "
+            },
+            "article_cust_closure_code":{
+               "type" : "string",
+               "example" :" "
+            },
+            "article_cust_closure_name":{
+               "type" : "string",
+               "example" :" "
+            },
+            "article_cust_fashionlevelecom_code":{
+               "type" : "string",
+               "example" :" "
+            },
+            "article_cust_fashionlevelecom_name":{
+               "type" : "string",
+               "example" :" "
+            },
+            "article_cust_GenericSeasonCode_code":{
+               "type" : "string",
+               "example" :" "
+            },
+            "article_cust_GenericSeasonCode_name":{
+               "type" : "string",
+               "example" :" "
+            },
+            "picFileName":{
+               "type" : "string",
+               "example" :"/trans_175x175.gif"
+            },
+            "active":{
+               "type" : "string",
+               "example" :"true "
+            },
+            "bookmark":{
+               "type" : "string",
+               "example" :"false"
+            },
+            "UOMCode":{
+               "type" : "string",
+               "example" :"code-PC"
+            },
+            "HTSValue":{
+               "type" : "string",
+               "example" :" "
+            },
+            "colorCardCode":{
+               "type" : "string",
+               "example" :" "
+            },
+            "sizeCardCode":{
+               "type" : "string",
+               "example" :" "
+            },
+            "permalink":{
+               "type" : "string",
+               "example" :"article-10004N0015"
+            }
+         }
+      },
+   "sourcingModuleResponse":{
+         "type": "object",
+    "required": [
+    "status",
+    "message",
+    "data"
+    ],
+    "properties": {
+      "status":{
+         "type" : "string",
+         "example" :"Success"
+      },
+      "message":{
+         "type" : "string",
+         "example" :"No Of Records Fetched are: 10"
+      },
+      "data":{
+         "type":"array",
+            "items":{
+               "$ref": "#/definitions/sourcingModuleResponseData"
+            } 
+      }
+      }
+      },
+   "sourcingModuleResponseData":{
+         "properties": {
+            "poOrderReference":{
+               "type":"string",
+               "example":"PO0002"
+            },
+            "orderCode":{
+               "type":"string",
+               "example":"ORD002"
+            },
+            "status":{
+               "type":"string",
+               "example":"Confirmed"
+            },
+            "revision":{
+               "type":"string",
+               "example":"0"
+            },
+            "category":{
+               "type":"string",
+               "example":"Apparel"
+            },
+            "division":{
+               "type":"string",
+               "example":"NINE & Co B.V"
+            },
+            "supplier":{
+               "type":"string",
+               "example":"Ahill Knit Exports"
+            },
+            "buyer":{
+               "type":"string",
+               "example":"NINE & Co B.V"
+            },
+            "buyerOrderNo":{
+               "type":"string",
+               "example":"BO-002"
+            },
+            "buyerRef":{
+               "type":"string",
+               "example":"BREF-002"
+            },
+            "agent":{
+               "type":"string",
+               "example":"NO agent"
+            },
+            "totalValue":{
+               "type":"string",
+               "example":"36360"
+            },
+            "deliveryStartDate":{
+               "type":"date",
+               "example":"3-Jan-20"
+            },
+            "deliveryEndDate":{
+               "type":"date",
+               "example":"3-Feb-20"
+            },
+            "paymentTerm":{
+               "type":"string",
+               "example":"Nett 30 Days"
+            },
+            "shipmentTerm":{
+               "type":"string",
+               "example":"AIR"
+            },
+            "deliveryTerm":{
+               "type":"string",
+               "example":"FOB"
+            },
+            "countryOfOrigin":{
+               "type":"string",
+               "example":"Panama"
+            },
+            "countryofDestination":{
+               "type":"string",
+               "example":"Netherlands"
+            },
+            "season":{
+               "type":"string",
+               "example":"Spring"
+            },
+            "delivery":{
+               "type":"string",
+               "example":"Delivery 1"
+            },
+            "reasonForRevision":{
+               "type":"string",
+               "example":""
+            },
+            "theme":{
+               "type":"string",
+               "example":"Awesome Love"
+            },
+            "deliveryStatus":{
+               "type":"string",
+               "example":"Pending"
+            },
+            "factoryName":{
+               "type":"string",
+               "example":"Aquilamax Manufacturing"
+            },
+            "createdOn":{
+               "type":"string",
+               "example":"3-Jan-20"
+            },
+            "revisionDate":{
+               "type":"string",
+               "example":"3-Jan-20"
+            },
+            "stickerRequirements":{
+               "type":"string",
+               "example":"Product and Inner"
+            },
+            "brandMarking":{
+               "type":"string",
+               "example":"Kinta"
+            },
+            "orderType":{
+               "type":"string",
+               "example":"Final Order"
+            },
+            "GSPA":{
+               "type":"string",
+               "example":"This is a text field"
+            },
+            "vesselSailingDate":{
+               "type":"date",
+               "example":"28-May-20"
+            },
+            "department":{
+               "type":"string",
+               "example":"Chef"
+            },
+            "subsidiary":{
+               "type":"string",
+               "example":"Blue Ocean Strategies (Dubai)"
+            },
+            "categoryManager":{
+               "type":"string",
+               "example":"Emily Scott"
+            },
+            "rating":{
+               "type":"string",
+               "example":"High"
+            },
+            "orderItems":{
+               "type" :"array",
+         "items": {
+            "$ref": "#/definitions/sourcingModuleResponseDataOrderItems"
+         }
+            },
+            "orderShipments":{
+               "type" :"array",
+               "items": {
+                  "$ref": "#/definitions/sourcingModuleResponseDataOrderShipments"
+               }
+            }
+         }
+      },
+   "sourcingModuleResponseDataOrderItems":{
+         "properties": {
+            "itemCode":{
+               "type":"string",
+               "example":"20510211"
+            },
+            "itemName":{
+               "type":"string",
+               "example":"G Sweater hood ls Crofton aop"
+            },
+            "orderedQuantity":{
+               "type":"number",
+               "example":1010
+            },
+            "orderPrice":{
+               "type":"number",
+               "example":36
+            },
+            "orderValue":{
+               "type":"number",
+               "example":36360
+            }
+         }
+      },
+   "sourcingModuleResponseDataOrderShipments":{
+         "properties": {
+            "shipmentRef":{
+               "type":"string",
+               "example":"SH0001"
+            },
+            "details":{
+               "type" :"array",
+               "items": {
+                  "$ref": "#/definitions/sourcingModuleResponseDataOrderShipmentsDetails"
+               }
+            }
+         }
+      },
+   "sourcingModuleResponseDataOrderShipmentsDetails":{
+         "properties": {
+            "articleCode":{
+               "type":"string",
+               "example":"20510211"
+            },
+            "quantitytoShip":{
+               "type":"number",
+               "example":505
+            }
+         }
+      },
+   "Body":{
+      "type": "object",
+      "required": [
+         "companyCode",
+         "companyId",
+         "licenseStart",
+         "licenseEnd",
+         "subscribedModules" 
+      ],
+      "properties": {
+         "companyCode": {
+            "type": "integer",
+            "format": "int64",
+            "example": "10015"
+          },
+         "companyId":{
+            "type": "string",
+            "example": "RandomOrg3"
+          },
+         "licenseStart": {
+            "type" : "date-time",
+            "example" :"2021-01-27T09:34:32.686Z"
+         },
+         "licenseEnd": {
+            "type" : "date-time",
+            "example" :"2021-01-27T09:34:32.686Z"
+         },
+         "subscribedModules" :{
+            "type": "array",
+            "example": ["Master", "Inventory", "Sales","Sourcing","Tracking","Item"]
+         }
+         
+      }
+    },
+    "LicenseResponse": {
+    "type": "object",
+    "required": [
+    "status",
+    "message",
+    "data"
+    ],
+    "properties": {
+      "status":{
+         "type" : "string",
+         "example" :"Success"
+      },
+      "message":{
+         "type" : "string",
+         "example" :"Your License has been created"
+      },
+      "data":{
+         "type" :"array",
+         "items": {
+            "$ref": "#/definitions/data"
+         }
+      }
+    }
+    },
+    "credentials":{
+      "properties": {
+         "apiKey":{
+           "type" : "string",
+           "example" :"d269a030A99a0A55a2Abf7cAa142485ee198"
+         },
+         "secretKey":{
+            "type" : "string",
+            "example" :"eyJhbGciOiJIUzI1NiJ9.IA.98LLLkUfa3344RDQhEIbOX7BP1ZyJyc8uBfqrRggU9c"
+         }
+      }
+    },
+    "data":{
+      "properties": {
+         "status":{
+           "type" : "string",
+           "example" :"active"
+         },
+         "subscribedModules":{
+            "type" :"array",
+            "example": ["Master", "Inventory", "Sales","Sourcing","Tracking","Item"]
+             },
+         "credentials": {
+            "type" :"array",
+            "items": {
+            "$ref": "#/definitions/credentials"
+         }
+         },
+         "_id":{
+            "type" : "string",
+           "example" :"6022c9fb0b26c31aebfb13bd"
+         },
+         "companyCode" :{
+            "type" : "number",
+           "example" : 10016
+         },
+         "companyId":{
+            "type" : "string",
+           "example" : "RandomOrg4"
+         },
+         "licenseStart": {
+            "type" : "date-time",
+            "example" :"2021-01-27T09:34:32.686Z"
+         },
+         "licenseEnd": {
+            "type" : "date-time",
+            "example" :"2021-01-27T09:34:32.686Z"
+         }
+         
+      }
+    },
+    "ShipmentModuleResponse":{
+      "type": "object",
+      "required": [
+      "status",
+      "message",
+      "data"
+      ],
+      "properties": {
+        "status":{
+           "type" : "string",
+           "example" :"Success"
+        },
+        "message":{
+           "type" : "string",
+           "example" :"No Of Records Fetched are: 1"
+        },
+        "data":{
+         "type" :"array",
+         "items": {
+         "$ref": "#/definitions/ShipmentModuleData"
+      }
+           }
+        }
+    },
+    "ShipmentModuleData": {
+    "type": "object",
+    "required": [
+    "ETA",
+    "ETD",
+    "MBL/MAWB",
+    "ShippedQty",
+    "TotalValue",
+    "arrivedOn",
+    "chargeableVolume",
+    "chargeableWeight",
+    "comments",
+    "createdByCompany",
+    "createdByUser",
+    "documentSentOn",
+    "forwarder",
+    "fromPort",
+    "invoice",
+    "lastUpdatedByUser",
+    "loadType",
+    "plannedETD",
+    "receiptedOn",
+    "shipTo",
+    "shipmentMode",
+    "shipmentRef",
+    "shipmentStatus",
+    "toPort",
+    "vessel/flightName",
+    "voyage/flight"
+    ],
+    "properties": {
+    "shipmentRef": {
+    "type": "string",
+    "example": "SH0002"
+    },
+    "shipTo": {
+    "type": "string",
+    "example": "Warehouse 2"
+    },
+    "shipmentMode": {
+    "type": "string",
+    "example": "SEA"
+    },
+    "ShippedQty": {
+    "type": "string",
+    "example": "419"
+    },
+    "TotalValue": {
+    "type": "string",
+    "example": "59569"
+    },
+    "loadType": {
+    "type": "string",
+    "example": "LCL"
+    },
+    "forwarder": {
+    "type": "string",
+    "example": "MAERSK LOGISTICS"
+    },
+    "MBL/MAWB": {
+    "type": "string",
+    "example": "M0002"
+    },
+    "fromPort": {
+    "type": "string",
+    "example": "China - Hangzhou"
+    },
+    "toPort": {
+    "type": "string",
+    "example": "Netherlands - Amsterdam"
+    },
+    "vessel/flightName": {
+    "type": "string",
+    "example": "VT002"
+    },
+    "voyage/flight": {
+    "type": "string",
+    "example": "VT112"
+    },
+    "plannedETD": {
+    "type": "string",
+    "example": "22-May-20"
+    },
+    "ETD": {
+    "type": "string",
+    "example": " "
+    },
+    "ETA": {
+    "type": "string",
+    "example": " "
+    },
+    "shipmentStatus": {
+    "type": "string",
+    "example": "Confirmed"
+    },
+    "documentSentOn": {
+    "type": "string",
+    "example": ""
+    },
+    "chargeableWeight": {
+    "type": "string",
+    "example": "0.005 Kg"
+    },
+    "chargeableVolume": {
+    "type": "string",
+    "example": "0.0245 Cbm"
+    },
+    "arrivedOn": {
+    "type": "string",
+    "example": " "
+    },
+    "receiptedOn": {
+    "type": "string",
+    "example": " "
+    },
+    "comments": {
+    "type": "string",
+    "example": "Widget Adapter"
+    },
+    "createdByCompany": {
+    "type": "string",
+    "example": "NINE & Co B.V."
+    },
+    "createdByUser": {
+    "type": "string",
+    "example": "Ard Zonneveld"
+    },
+    "lastUpdatedByUser": {
+    "type": "string",
+    "example": "Ard Zonneveld"
+    },
+    "invoice": {
+    "type": "array",
+    "items": {
+      "$ref": "#/definitions/ShipmentModuleDataInvoice"
+   }
+    }
+    }
+    },
+    "ShipmentModuleDataInvoice":{
+      "properties": {
+         "invoiceRef":{
+            "type": "string",
+            "example": "INV0003"
+         },
+         "exporter":{
+            "type": "string",
+            "example": "Imps & Elfs"
+         },
+         "billTo":{
+            "type": "string",
+            "example": "NINE & Co B.V."
+         },
+         "container":{
+            "type": "string",
+            "example": "CTN003"
+         },
+         "masterInvoice":{
+            "type": "string",
+            "example": ""
+         },
+         "totalValue":{
+            "type": "string",
+            "example": "59569"
+         },
+         "comments":{
+            "type": "string",
+            "example": ""
+         },
+         "POList":{
+            "type": "array",
+            "items": {
+            "$ref": "#/definitions/ShipmentModuleDataInvoicePOList"
+         }
+         }
+      }
+    },
+    "ShipmentModuleDataInvoicePOList":{
+      "properties": {
+         "POorderNo":{
+            "type" : "string",
+           "example" :"ORD007"
+         },
+         "POrefernceNo":{
+            "type" : "string",
+           "example" :"PO0007"
+         },
+         "Supplier":{
+            "type" : "string",
+           "example" :"Texline"
+         },
+         "details":{
+            "type": "array",
+            "items": {
+            "$ref": "#/definitions/ShipmentModuleDataInvoicePOListDetails"
+         }
+         }
+      }
+    },
+    "ShipmentModuleDataInvoicePOListDetails":{
+      "properties": {
+         "articleCode":{
+            "type" : "string",
+           "example" :"1011013"
+         },
+         "name":{
+            "type" : "string",
+           "example" :"Jeans OTB Flared Senna"
+         },
+         "poQuantity":{
+            "type" : "string",
+           "example" :"839"
+         },
+         "poPrice":{
+            "type" : "string",
+           "example" :"71"
+         }
+      }
+    },
+    "MasterModuleResponse":{
+      "type": "object",
+      "properties": {
+         "status":{
+            "type" : "string",
+           "example" :"Success"
+         },
+         "message":{
+            "type" : "string",
+           "example" :"Success"
+         },
+         "data":{
+            "type":"array",
+               "items":{
+                  "$ref": "#/definitions/MasterModuleResponseData"
+               } 
+         }
+      }
+    },
+    "MasterModuleResponseData":{
+      "properties": {
+         "supplierName":{
+            "type":"string",
+            "example" :"Poppys knitwear PVT Ltd"
+         },
+         "supplierCode":{
+            "type":"string",
+            "example" :"sup1"
+         }
+      }
+    },
+    "InvalidModuleResponse":{
+      "type": "object",
+      "properties": {
+         "status":{
+            "type" : "string",
+           "example" :"Failed"
+         },
+         "message":{
+            "type" : "string",
+           "example" :"Invalid User"
+         },
+         "data":{
+            "type":"array",
+            "example":[]
+         }
+      }
+    },
+    "InvalidModuleKeyResponse":{
+      "type": "object",
+      "properties": {
+         "status":{
+            "type" : "string",
+           "example" :"Failed"
+         },
+         "message":{
+            "type" : "string",
+           "example" :"Invalid Secret Key or check your license duration"
+         },
+         "data":{
+            "type":"array",
+            "example":[]
+         }
+      }
+    },
+    "BadModuleRequestResponse":{
+      "type": "object",
+      "properties": {
+         "status":{
+            "type" : "string",
+           "example" :"Failed"
+         },
+         "message":{
+            "type" : "string",
+           "example" :"Bad Request"
+         },
+         "data":{
+            "type":"array",
+            "example":[]
+         }
+      }
+    },
+    "BadModuleRequestResponseWithoutData":{
+      "type": "object",
+      "properties": {
+         "status":{
+            "type" : "string",
+           "example" :"Failed"
+         },
+         "message":{
+            "type" : "string",
+           "example" :"Bad Request"
+         }
+      }
+    },
+    "inventoryModuleResponse":{
+      "type": "object",
+      "properties": {
+         "status":{
+            "type" : "string",
+           "example" :"Success"
+         },
+         "message":{
+            "type" : "string",
+           "example" :"Success"
+         },
+         "data":{
+            "type":"array",
+               "items":{
+                  "$ref": "#/definitions/inventoryModuleResponseData"
+               } 
+         }
+      }
+    },
+    "inventoryModuleResponseData":{
+      "properties": {
+         "InvoiceRef":{
+            "type":"string",
+            "example":"INV0001"
+         },
+         "InvoiceDt":{
+            "type":"data",
+            "example":"02-Jan-19"
+         },
+         "RevisedInvoiceDt":{
+            "type":"string",
+            "example":""
+         },
+         "Exporter":{
+            "type":"string",
+            "example":"Esprit Maternity"
+         },
+         "BillTo":{
+            "type":"string",
+            "example":"NINE & Co B.V"
+         },
+         "HBL/HAWB":{
+            "type":"string",
+            "example":"H25151"
+         },
+         "Container":{
+            "type":"string",
+            "example":"CTN001"
+         },
+         "MasterInvoice":{
+            "type":"string",
+            "example":""
+         },
+         "MasterInvoiceDt":{
+            "type":"string",
+            "example":""
+         },
+         "QtyToShip":{
+            "type":"string",
+            "example":"1559"
+         },
+         "TotalValue":{
+            "type":"string",
+            "example":"86331"
+         },
+         "Comments":{
+            "type":"string",
+            "example":""
+         }
+      }
+    }
+   }
+   }
